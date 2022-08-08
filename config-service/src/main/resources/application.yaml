@@ -1,0 +1,14 @@
+server:
+  port: 8081
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          default-label: master
+          uri: https://github.com/gocahum/microservices
+          search-paths: config-data
+#          username: gocahum@gmail.com
+#          password: 30dtv0085n
+  application:
+    name: config-service
