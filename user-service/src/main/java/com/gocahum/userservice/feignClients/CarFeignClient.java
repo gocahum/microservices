@@ -12,7 +12,7 @@ import com.gocahum.userservice.model.Car;
 
 
 
-@FeignClient(name ="car-service")//, url = "localhost:8002/car")
+@FeignClient(name ="car-service", path = "/car")//, url = "localhost:8002/car")
 //@RequestMapping("/car")
 public interface CarFeignClient {
 	@PostMapping
