@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.gocahum.userservice.model.Bike;
 
-@FeignClient(name = "bike-service", url = "http://localhost:8003/bike")
+@FeignClient(name = "bike-service")//, url = "http://localhost:8003/bike")
 public interface BikeFeignClient {
 	@PostMapping
 	Bike save(@RequestBody Bike bike);
