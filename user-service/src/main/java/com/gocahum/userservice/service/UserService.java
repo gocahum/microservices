@@ -15,7 +15,10 @@ import com.gocahum.userservice.model.Bike;
 import com.gocahum.userservice.model.Car;
 import com.gocahum.userservice.repository.UserRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class UserService {
 	@Autowired
 	private UserRepository repository;
@@ -62,6 +65,7 @@ public class UserService {
 	}
 
 	public Map<String, Object> getUserAndVehicle(int userId) {
+		log.info("########## getUserAndVehicle ##########");
 		Map<String, Object> result = new HashMap<String, Object>();
 		User user = repository.findById(userId).orElse(null);
 		if (user == null) {

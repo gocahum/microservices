@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gocahum.bikeservice.entity.Bike;
 import com.gocahum.bikeservice.service.BikeService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/bike")
+@Slf4j
 public class BikeController {
 
 	@Autowired
@@ -23,6 +26,7 @@ public class BikeController {
 
 	@GetMapping
 	public ResponseEntity<List<Bike>> getAll() {
+		log.info("getAll");
 		List<Bike> users = bikeService.getAll();
 		if (users.isEmpty()) {
 			return ResponseEntity.noContent().build();
@@ -32,6 +36,7 @@ public class BikeController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Bike> getById(@PathVariable("id") int id) {
+		log.info("getById - "+id);
 		Bike bike = bikeService.getByBikeId(id);
 		if (bike == null) {
 			return ResponseEntity.notFound().build();
@@ -40,8 +45,9 @@ public class BikeController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Bike> save(@RequestBody Bike user) {
-		Bike bikeNew = bikeService.save(user);
+	public ResponseEntity<Bike> save(@RequestBody Bike bike) {
+		log.info("save "+bike.toString());
+		Bike bikeNew = bikeService.save(bike);
 		if (bikeNew == null) {
 			return ResponseEntity.notFound().build();
 		}
@@ -50,6 +56,7 @@ public class BikeController {
 	
 	@GetMapping("/byuser/{userid}")
 	public ResponseEntity<List<Bike>> getUserId(@PathVariable("userid") int userId) {
+		log.info("getUserById -> "+userId);
 		List<Bike> bikes = bikeService.byUserId(userId);
 		if (bikes.isEmpty()) {
 			return ResponseEntity.noContent().build();

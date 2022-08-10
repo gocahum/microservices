@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gocahum.carservice.entity.Car;
 import com.gocahum.carservice.service.CarService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/car")
+@Slf4j
 public class CarController {
 
 	@Autowired
@@ -23,6 +26,7 @@ public class CarController {
 
 	@GetMapping
 	public ResponseEntity<List<Car>> getAll() {
+		log.info("getAll");
 		List<Car> users = carService.getAll();
 		if (users.isEmpty()) {
 			return ResponseEntity.noContent().build();
@@ -32,6 +36,7 @@ public class CarController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Car> getById(@PathVariable("id") int id) {
+		log.info("getById");
 		Car car = carService.getByCarId(id);
 		if (car == null) {
 			return ResponseEntity.notFound().build();
@@ -41,6 +46,7 @@ public class CarController {
 
 	@PostMapping
 	public ResponseEntity<Car> save(@RequestBody Car user) {
+		log.info("save");
 		Car carNew = carService.save(user);
 		if (carNew == null) {
 			return ResponseEntity.notFound().build();
@@ -50,6 +56,7 @@ public class CarController {
 	
 	@GetMapping("/byuser/{userid}")
 	public ResponseEntity<List<Car>> getUserId(@PathVariable("userid") int userId) {
+		log.info("getUserId");
 		List<Car> cars = carService.byUserId(userId);
 		if (cars.isEmpty()) {
 			return ResponseEntity.noContent().build();
