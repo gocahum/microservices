@@ -43,7 +43,7 @@ spring:
             user-name-attribute: preferred_username
             token-uri: http://192.168.100.8:8089/auth/realms/tutorial-realm/protocol/openid-connect/token
         registration:
-          client-name: 
+          tutorial-client: 
             provider: keycloak
             client-id: tutorial-client
             client-secret: LwYmRqDx4qYIlkzhCtteTSUgVJCxdZlA
