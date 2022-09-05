@@ -38,7 +38,7 @@ spring:
       client:
         provider:
           keycloak:
-            authorization-uri: http://192.168.100.8:8089/auth/realms/tutorial-realm/protocol/openid-connect/auth 
+            authorization-uri: http://192.168.100.8:8089/auth/realms/tutorial-realm/protocol/openid-connect/auth
             userinfo-uri: http://192.168.100.8:8089/auth/realms/tutorial-realm/protocol/openid-connect/userinfo
             user-name-attribute: preferred_username
             token-uri: http://192.168.100.8:8089/auth/realms/tutorial-realm/protocol/openid-connect/token
@@ -48,6 +48,6 @@ spring:
             client-id: tutorial-client
             client-secret: LwYmRqDx4qYIlkzhCtteTSUgVJCxdZlA
             authorization-grant-type: authorization_code
-            redirect-uri: "{baseURL}/login/oauth2/code/tutorial-client"
+            redirect-uri: http://192.168.100.8:8089/login/oauth2/code/tutorial-client
         
          
