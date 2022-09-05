@@ -44,7 +44,7 @@ spring:
             token-uri: http://192.168.100.8:8089/auth/realms/tutorial-realm/protocol/openid-connect/token
         registration:
           client-name: 
-            provider: keycloac
+            provider: keycloak
             client-id: tutorial-client
             client-secret: LwYmRqDx4qYIlkzhCtteTSUgVJCxdZlA
             authorization-grant-type: authorization_code
